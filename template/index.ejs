@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/style/card.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="create">add product</a>
+      <h1 class="text-center mx-auto">Product List</h1>
+      <div class="row">
+        <% products.forEach(function(product){ %>
+        <div class="col-3">
+          <div class="card mx-auto mt-5">
+            <img
+              class="mx-auto img-thumbnail"
+              src="<%= product.image%>"
+              width="auto"
+              height="auto"
+            />
+            <div class="card-body text-center mx-auto">
+              <div class="cvp">
+                <h5 class="card-title font-weight-bold"><%= product.name%></h5>
+                <p class="card-text">$<%= product.price%></p>
+                <a href="/<%= product.id%>" class="btn details px-auto"
+                  >view details</a
+                ><br />
+                <a href="edit/<%= product.id%>" class="btn details px-auto"
+                  >edit</a
+                >
+                <a href="/delete/<%= product.id%>" class="btn details px-auto"
+                  >delete</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>
